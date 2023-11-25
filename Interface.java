@@ -34,11 +34,11 @@ public class Interface {
 	private static double nombreIon;
 	private JLabel affichageReponse;
 	private JLabel instruction;
-
+	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) { 			//Sert a démarrer l'interface
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
