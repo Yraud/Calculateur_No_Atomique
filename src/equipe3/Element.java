@@ -7,37 +7,48 @@ public class Element {
     private int nombreNeutrons;
     private int nombreProtons;
     private int nombreElectrons;
+    private String nom;
+    private String symbol;
 
-    public Element(int numeroAtomique, double masseAtomique){
+    public Element(int numeroAtomique, double masseAtomique, String nom, String symbol){
         this.numeroAtomique = numeroAtomique;
         this.masseAtomique = masseAtomique;
         this.nombreNeutrons = nombreNeutrons();
         this.nombreProtons = numeroAtomique;
         this.nombreElectrons = numeroAtomique;
+        this.nom = nom;
+        this.symbol = symbol;
     }
 
     /*Getter*/
 
     public int getNumeroAtomique() {
-        return numeroAtomique;
+        return this.numeroAtomique;
     }
 
     public double getMasseAtomique() {
-        return masseAtomique;
+        return this.masseAtomique;
     }
 
     public int getNombreNeutrons() {
-        return nombreNeutrons;
+        return this.nombreNeutrons;
     }
 
     public int getNombreProtons() {
-        return nombreProtons;
+        return this.nombreProtons;
     }
 
     public int getNombreElectrons() {
-        return nombreElectrons;
+        return this.nombreElectrons;
     }
 
+    public String getNom() {
+        return this.nom;
+    }
+
+    public String getSymbol() {
+        return this.symbol;
+    }
     /*Setter*/
 
     public void setNumeroAtomique(int numeroAtomique) {
@@ -60,6 +71,13 @@ public class Element {
         this.nombreElectrons = nombreElectrons;
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
     /*Method*/
 
     private int nombreNeutrons(){
@@ -103,7 +121,7 @@ public class Element {
      * @return the value of the charge of the ion
      */
     public int charge(){
-        return -(nombreElectrons-numeroAtomique);
+        return -(this.nombreElectrons-this.numeroAtomique);
     }
 
     /**
@@ -111,18 +129,18 @@ public class Element {
      * @return a new Element object that have the same default values
      */
     public Element copy(){
-        return new Element(this.numeroAtomique, this.masseAtomique);
+        return new Element(this.numeroAtomique, this.masseAtomique, this.nom, this.symbol);
     }
 
     public String toString() {
-        return "Numéro Atomique: " + numeroAtomique + "\nMasse Atomique : " + masseAtomique + "\nNeutrons : " + nombreNeutrons + "\nProtons : " + nombreProtons + "\nElectrons : " + nombreElectrons;
+        return "Numéro Atomique: " + this.numeroAtomique + "\nMasse Atomique : " + this.masseAtomique + "\nNeutrons : " + this.nombreNeutrons + "\nProtons : " + this.nombreProtons + "\nElectrons : " + this.nombreElectrons;
     }
 
     public boolean equals(Element element) {
         if (this == element) return true;
-        return numeroAtomique == element.numeroAtomique && Double.compare(masseAtomique, element.masseAtomique) == 0 &&
-                nombreNeutrons == element.nombreNeutrons && nombreProtons == element.nombreProtons &&
-                nombreElectrons == element.nombreElectrons;
+        return this.numeroAtomique == element.numeroAtomique && Double.compare(this.masseAtomique, element.masseAtomique) == 0 &&
+                this.nombreNeutrons == element.nombreNeutrons && this.nombreProtons == element.nombreProtons &&
+                this.nombreElectrons == element.nombreElectrons;
     }
 
 
